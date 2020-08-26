@@ -30,7 +30,7 @@ export default function App() {
       if(repository.id === id) {
         return likedRepository;
       } else {
-        return repository
+        return repository;
       }
     })
 
@@ -44,12 +44,12 @@ export default function App() {
         <FlatList
           data={repositories}
           keyExtractor={repository => repository.id}
-          renderItem={({ item: repository }) => {
+          renderItem={({ item: repository }) => (
             <View style={styles.repositoryContainer}>
               <Text style={styles.repository}>{repository.title}</Text>
 
               <View style={styles.techsContainer}>
-                {repositories.techs.map(tech => (
+                {repository.techs.map(tech => (
                   <Text key={tech} style={styles.tech}>
                     {tech}
                   </Text>
@@ -75,7 +75,7 @@ export default function App() {
                 <Text style={styles.buttonText}>Curtir</Text>
               </TouchableOpacity>
             </View>
-          }}
+          )}
         />
       </SafeAreaView>
     </>
